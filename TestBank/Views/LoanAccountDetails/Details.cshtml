@@ -1,0 +1,123 @@
+﻿@model TestBank.Models.LoanAccountDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+<body style="background-color: #8fbc8f ">
+
+    <h3 style="padding:1%  29%">Loan Account Created Successfully</h3>
+
+    <div style=" background-color: #d0f0c0; border: solid; padding: 10px;width:40%;height:350px " class="col-md-offset-3">
+        <h4 style="padding:1%  10%;text-align:center">Loan Account Detail</h4>
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AccNum)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AccNum)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IFSCcode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IFSCcode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BalanceAmount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BalanceAmount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BranchCode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BranchCode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Principle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Principle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RateOfInterest)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RateOfInterest)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LoanDuration)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoanDuration)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalLoanAmount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalLoanAmount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MonthlyPayment)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MonthlyPayment)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LoanAccountType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoanAccountType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LoanIssuedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoanIssuedDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LoanPayDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoanPayDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerAccount.AccountType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CustomerAccount.AccountType)
+            </dd>
+
+        </dl>
+        <br/>
+        <div class="col-md-3 col-md-offset-2">
+            <button style="background-color: #32cd32;color:white" type="button" class="btn btn-default" onclick="location.href = '@Url.Action("Search", "CustomerDetails")'">Back</button>
+        </div>
+
+    </div>
+</body>

@@ -1,0 +1,178 @@
+﻿@model TestBank.Models.LoanAccountDetail
+@{
+    ViewBag.Title = "ViewAccount";
+}
+<body style="background-color: #9cffa7">
+
+<div class="row ">
+    <div class="col-md-2 col-md-offset-0 ">
+        <br />
+        <button type="button" style="background-color: #2a8600;color:white" class="btn btn-default " onclick=" location.href = '@Url.Action("Search", "CustomerDetails")' ">BACK</button>
+    </div>
+    <div class="col-md-10 col-md-offset-0 ">
+        <br>
+        <h4 style="padding:0% 24%">LOAN ACCOUNT DETAILS </h4>
+    </div>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div style="background-color: #cdffd2;border:solid;padding:10px" class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row ">
+            <div class="col-xs-4 col-xs-offset-0">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AccNum, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-xs-6 col-xs-offset-3">
+                        @Html.EditorFor(model => model.AccNum, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.AccNum, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 ">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LoanAccountType, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-xs-6 col-xs-offset-2">
+                        @Html.EditorFor(model => model.LoanAccountType, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.LoanAccountType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-xs-offset-0">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IFSCcode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-xs-8 col-xs-offset-2">
+                        @Html.EditorFor(model => model.IFSCcode, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.IFSCcode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+
+        <div class="row ">
+            <div class="col-xs-4 col-xs-offset-0">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LoanIssuedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-xs-6 col-xs-offset-3">
+                        @Html.EditorFor(model => model.LoanIssuedDate, new { htmlAttributes = new { @class = "form-control", @Value = DateTime.Now.ToString("yyyy'-'MM'-'dd"), @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.LoanIssuedDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-4 col-xs-offset-0">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LoanPayDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-xs-6 col-xs-offset-2">
+                        @Html.EditorFor(model => model.LoanPayDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.LoanPayDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-xs-offset-0">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BranchCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-xs-8 col-xs-offset-2">
+                        @Html.EditorFor(model => model.BranchCode, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.BranchCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div class="row ">
+            <div class="col-xs-4 col-xs-offset-0">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Principle, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-xs-6 col-xs-offset-3">
+                        @Html.EditorFor(model => model.Principle, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.Principle, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 col-xs-offset-0">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LoanDuration, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-xs-6 col-xs-offset-2">
+                        @Html.EditorFor(model => model.LoanDuration, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.LoanDuration, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-xs-offset-0">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RateOfInterest, "Interest", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-xs-8 col-xs-offset-2">
+                        @Html.EditorFor(model => model.RateOfInterest, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.RateOfInterest, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <br />
+
+
+        <div class="row ">
+            <div class="col-xs-4 col-xs-offset-0">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MonthlyPayment, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-xs-6 col-xs-offset-3">
+                        @Html.EditorFor(model => model.MonthlyPayment, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.MonthlyPayment, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 col-xs-offset-0">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TotalLoanAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-xs-6 col-xs-offset-2">
+                        @Html.EditorFor(model => model.TotalLoanAmount, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.TotalLoanAmount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-xs-offset-0">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BalanceAmount, "Balance", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-xs-8 col-xs-offset-2">
+                        @Html.EditorFor(model => model.BalanceAmount, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.BalanceAmount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+    </div>
+
+}
+
+
+<div class="row ">
+    <div class="col-md-9 col-md-offset-0 ">
+        <h4 style="padding:0% 20% 0% 50%;color:black">EMI HISTORY </h4>
+    </div>
+
+    <div class="col-md-3 col-md-offset-0 ">
+        <button type="button" style="background-color: #2a8600; color: white " class="btn btn-default " onclick=" location.href = '@Url.Action("Create", "LoanEMIDetails", new { id =ViewBag.AccNum })' ">PAY EMI</button>
+    </div>
+
+</div>
+<br />
+
+
+<div style="border:solid" class="form-horizontal">
+    <div class="row">
+        <div class="col-xs-9 col-xs-offset-0">
+            @{Html.RenderAction("Grid");}
+        </div>
+    </div>
+</div>
+</body>

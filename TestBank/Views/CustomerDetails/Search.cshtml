@@ -1,0 +1,203 @@
+﻿@model TestBank.Models.CustomerDetail
+@{
+    ViewBag.Title = "Search";
+
+}
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('../../Images/photo2.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    @*<body style="background-color:cornflowerblue">*@
+        <h3 color="red" style="padding: 1% 30%; color:white">CUSTOMER INFORMATION</h3>
+        @using (Html.BeginForm("Search", "CustomerDetails", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <form style=" background-color: blue; color: white; " asp-action="Search">
+                <div style="background-color:aliceblue;border:solid;padding:5px" class="form-horizontal">
+                    <div class="form-group  ">
+                        <label for="id" style=" color:blue" class="control-label col-md-2 ">Customer ID</label>
+                        <div class="col-md-2 ">
+                            <input name="id" class="form-control" />
+                        </div>
+                        <div class="col-md-1">
+                            <input style=" background-color:blue; color: white " type="submit" value="Search" class="btn btn-default" />
+                        </div>
+                        <div class="col-md-2 ">
+
+                            <button style="border-color:darkmagenta; color:blueviolet" type="button" class="btn btn-default" onclick="location.href = '@Url.Action("Index","CustomerDetails",new { id = ViewBag.id})'">LIST OF CUSTOMERS</button>
+                        </div>
+                        <div class="col-md-2 ">
+                            <button style=" background-color:mediumseagreen; color: white " type="button" class="btn btn-default" onclick="location.href = '@Url.Action("Create", "CustomerAccounts", new { id = ViewBag.id })'">Add Account</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        }
+        </br>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal" style="background-color:aliceblue ; color:navy; height:12%;width:100%;padding:10px;border:solid">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.CustID)
+
+                <div class="row " style=" background-clip:content-box:border-box">
+                    <div class="col-xs-3 col-xs-offset-0">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-xs-8 col-xs-offset-1">
+                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-xs-offset-0">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-xs-8 col-xs-offset-1">
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-xs-offset-0">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-xs-8 col-xs-offset-2">
+                                @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3 ">
+                            &emsp;&emsp;&emsp;  <button type="button" style="padding:2% 11% 2% 5%; background-color:Highlight;color:white" class="btn btn-default " onclick="location.href = '@Url.Action("Create", "CustomerDetails")'"> ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3 col-xs-offset-0">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-xs-8 col-xs-offset-1">
+                                @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-xs-offset-0">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EmailId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-xs-8 col-xs-offset-1">
+                                @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-xs-offset-0">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MaritalStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-xs-8 col-xs-offset-2">
+                                @Html.EditorFor(model => model.MaritalStatus, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.MaritalStatus, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3 ">
+                            &emsp;&emsp;&emsp;  <button type="button" style=" background-color:mediumseagreen;color:white" class="btn btn-default " onclick=" location.href = '@Url.Action("Edit", "CustomerDetails", new { id = ViewBag.id })' ">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-3 col-xs-offset-0">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Address1, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-xs-8 col-xs-offset-1">
+                                @Html.EditorFor(model => model.Address1, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.Address1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-xs-offset-0">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Address2, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-xs-8 col-xs-offset-1">
+                                @Html.EditorFor(model => model.Address2, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.Address2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-xs-offset-0">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ZIPCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-xs-8 col-xs-offset-2">
+                                @Html.EditorFor(model => model.ZIPCode, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.ZIPCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3 ">
+                            &emsp;&emsp;&emsp; <button type="button" style=" background-color:red;color:white" class="btn btn-default" onclick="location.href = '@Url.Action("Delete", "CustomerDetails", new { id = ViewBag.id })'">DELETE</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-3 col-xs-offset-0">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-xs-8 col-xs-offset-1">
+                                @Html.EditorFor(model => model.City1.CityName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-xs-offset-0">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-xs-8 col-xs-offset-1">
+                                @Html.EditorFor(model => model.State1.StateName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-xs-offset-0">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-xs-8 col-xs-offset-2">
+                                @Html.EditorFor(model => model.Country1.CountryName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <h3 style="color:black; padding: 1% 30% ">ACCOUNT INFORMATION</h3>
+        <div style="background-color:aliceblue;border:solid;padding:10px" class="form-horizontal">
+            <div class="row">
+                <div class="col-xs-9 col-xs-offset-0">
+                    @{Html.RenderAction("Grid");}
+                </div>
+            </div>
+        </div>
+    </body>
+    </head>
+</html>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

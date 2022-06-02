@@ -1,0 +1,64 @@
+﻿@model TestBank.Models.CustomerAccount
+
+@{
+    ViewBag.Title = "Delete";
+}
+<body style="background-color:  #b0c4de ">
+
+    <h2 style="padding:0% 15%">Delete:</h2>
+    <h4 style="padding:0% 25%">This will delete the account with all his transactions</h4>
+    <h4 style="padding:0% 25%">Are you sure you want to delete this?</h4>
+    <h3 style="padding:0% 33%">Account Detail</h3>
+    <br/>
+
+    <div style="background-color: #d6d6ff; left: 25%; top: 60%; border: 3px solid; padding: 20px 20px; width: 40% " class="col-md-offset-3">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AccNum)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AccNum)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AccountType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AccountType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AccountSubType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AccountSubType)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDetail.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDetail.FirstName)
+            </dd>
+
+        </dl>
+        <br />
+        @using (Html.BeginForm())
+        {
+@Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <div class="form-actions no-color row">
+                        <div class="col-md-2 col-md-offset-1">
+                            <input style="background-color: #87ceeb;color:white" type="submit" value="Delete" class="btn btn-default" />
+                        </div>
+                        <div class="col-md-2 col-md-offset-0">
+                            <button style="background-color: #92a1cf;color:white" type="button" class="btn btn-default" onclick="location.href = '@Url.Action("Search","CustomerDetails")'">Cancel</button>
+                        </div>
+                    </div>
+                </div>}
+    </div>
+    </body>
